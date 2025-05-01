@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Полная статистика</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stats.css') }}">
+</head>
+<body>
+
+<h1>Статистика обнаружения овец</h1>
+
+<div class="summary">
+    <p><strong>Всего обработано файлов:</strong> {{ total_detections }}</p>
+    <p><strong>Общее количество найденных овец:</strong> {{ total_sheep }}</p>
+</div>
+
+<h2>История обработок</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Дата и время</th>
+        <th>Исходный файл</th>
+        <th>Обработанный файл</th>
+        <th>Количество овец</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for result in results %}
+    <tr>
+        <td>{{ result.id }}</td>
+        <td>{{ result.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        <td>{{ result.input_file }}</td>
+        <td>{{ result.output_file }}</td>
+        <td>{{ result.sheep_count }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="/stats/download_report" class="download-btn">Скачать статистику в формате Excel</a>
+
+<div class="actions">
+    <a href="/">Назад</a>
+</div>
+
+</body>
+</html>

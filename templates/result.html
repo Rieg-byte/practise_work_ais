@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат детекции</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Результат</h1>
+    <div class="media-grid">
+        <div class="media-box">
+            <h2>Исходное</h2>
+            {% if input_file.lower().endswith(('.png', '.jpg', '.jpeg')) %}
+            <img src="{{ url_for('uploaded_file', filename=input_file) }}" class="media-image">
+            {% elif input_file.lower().endswith(('.mp4', '.avi', '.mov')) %}
+            <video controls>
+                <source src="{{ url_for('uploaded_file', filename=input_file) }}" type="video/mp4">
+            </video>
+            {% endif %}
+        </div>
+
+        <div class="media-box">
+            <h2>Итог</h2>
+            {% if output_file.lower().endswith(('.png', '.jpg', '.jpeg')) %}
+            <img src="{{ url_for('exported_file', filename=output_file) }}" class="media-image">
+            {% elif output_file.lower().endswith(('.mp4', '.avi', '.mov')) %}
+            <video controls>
+                <source src="{{ url_for('exported_file', filename=output_file) }}" type="video/mp4">
+            </video>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="info">
+        <p><strong>Найдено овец:</strong> {{ sheep_count }}</p>
+    </div>
+
+    <div class="actions">
+        <a href="/">Назад</a>
+    </div>
+
+</div>
+
+</body>
+</html>

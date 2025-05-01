@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Камера</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/camera.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Детектирование овец в реальном времени</h1>
+
+    <div class="stream-container">
+        <img id="videoStream" src="" width="100%" alt="Видео с камеры" />
+    </div>
+
+    <p id="status">Камера выключена</p>
+    <button id="toggleCameraBtn" class="control-btn">Включить камеру</button>
+
+    <div class="actions">
+        <a href="/">Назад</a>
+    </div>
+</div>
+
+<script>
+    const VIDEO_FEED_URL = "{{ url_for('video_feed') }}";
+</script>
+<script src="{{ url_for('static', filename='js/camera.js') }}"></script>
+
+</body>
+</html>

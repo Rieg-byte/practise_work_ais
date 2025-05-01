@@ -1,0 +1,72 @@
+/* static/css/stats.css */
+
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.summary {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.summary p {
+    margin: 5px 0;
+}
+
+h2 {
+    margin-top: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #1b5e20;
+}
+
+.actions {
+    margin-top: 30px;
+}
+
+.actions a {
+    display: inline-block;
+
+    padding: 12px 24px;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.actions a:hover {
+    background-color: #1b5e20;
+}

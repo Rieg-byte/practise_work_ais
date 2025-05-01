@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подсчёт овец</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Автоматический подсчёт овец на пастбище</h1>
+        <p>Загрузите изображение или видео для анализа</p>
+    </header>
+
+    <main>
+        <form action="/upload" method="post" enctype="multipart/form-data" class="upload-form">
+            <div class="file-input-wrapper">
+                <div class="file-input">
+                    <input type="file" name="file" id="file" required>
+                    <label for="file">Выбрать файл</label>
+                </div>
+                <span id="filename-display" class="filename-display">Файл не выбран</span>
+                <button type="submit" class="submit-btn">Детектировать</button>
+            </div>
+        </form>
+    </main>
+
+    <nav class="links">
+        <a href="{{ url_for('stats') }}" class="nav-link">Посмотреть статистику</a>
+        <a href="{{ url_for('camera') }}" class="nav-link">Детектировать в реальном времени</a>
+    </nav>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/file_preview.js') }}"></script>
+
+</body>
+</html>
